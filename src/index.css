@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+/* ─── Design Tokens — BRIGHT theme ───────────────────────────── */
+:root {
+  --bg-base: #FFFFFF;
+  --bg-alt: #F7F8FA;
+  --bg-alt-2: #F1F3F6;
+  --bg-card: #FFFFFF;
+  --accent-blue: #3B5BFF;
+  --accent-teal: #00C2A8;
+  --accent-coral: #FF6B4A;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --border-hairline: #E5E7EB;
+  --border-subtle: #E5E7EB;
+  --border-accent: rgba(59, 91, 255, 0.3);
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --shadow-card-hover: 0 4px 12px rgba(16, 24, 40, 0.10);
+  --shadow-lg: 0 10px 25px -5px rgba(16, 24, 40, 0.1), 0 8px 10px -6px rgba(16, 24, 40, 0.1);
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { 
+  scroll-behavior: smooth; 
+  width: 100%;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-primary);
+}
+
+/* ─── Gradients ──────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #3B5BFF 0%, #00C2A8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #3B5BFF 0%, #00C2A8 100%);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.gradient-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2f4de6 0%, #00a892 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gradient-btn:hover::after { opacity: 1; }
+.gradient-btn span { position: relative; z-index: 1; }
+
+/* ─── Glass & Surface Effects ────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hairline);
+}
+
+/* ─── Cards (Light Theme with Soft Elevation) ─────────────────── */
+.card-dark, .card-light {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-dark:hover, .card-light:hover {
+  border-color: #D1D5DB;
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ─── Pulsing dot ────────────────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* ─── Slot Map (Light Background Contrast) ───────────────────── */
+.slot-available {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #15803D;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.slot-available:hover {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: #22C55E;
+  transform: scale(1.03);
+}
+.slot-occupied {
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  color: #9CA3AF;
+  cursor: not-allowed;
+}
+.slot-reserved {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #D97706;
+}
+.slot-selected {
+  background: linear-gradient(135deg, rgba(59, 91, 255, 0.18), rgba(0, 194, 168, 0.18));
+  border: 2px solid #3B5BFF;
+  color: #3B5BFF;
+  box-shadow: 0 0 10px rgba(59, 91, 255, 0.25);
+}
+.slot-ev {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #15803D;
+}
+
+/* ─── Kiosk specific (KEEP DARK EXCEPTION) ───────────────────── */
+.kiosk-plate {
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
+@keyframes gate-open {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); transform-origin: left; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-anim { animation: float 4s ease-in-out infinite; }
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(59, 91, 255, 0.2); }
+  50% { box-shadow: 0 0 28px rgba(59, 91, 255, 0.35), 0 0 40px rgba(0, 194, 168, 0.15); }
+}
+
+.glow-pulse { animation: glow-pulse 2.5s ease-in-out infinite; }
+
+@keyframes slot-auto-assign-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 91, 255, 0.8), 0 0 20px rgba(0, 194, 168, 0.6);
+    transform: scale(1);
+  }
+  30% {
+    box-shadow: 0 0 0 8px rgba(59, 91, 255, 0.3), 0 0 28px rgba(0, 194, 168, 0.4);
+    transform: scale(1.06);
+  }
+  60% {
+    box-shadow: 0 0 0 14px rgba(59, 91, 255, 0), 0 0 16px rgba(0, 194, 168, 0.2);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(59, 91, 255, 0.3);
+    transform: scale(1);
+  }
+}
+
+.slot-auto-assigned {
+  animation: slot-auto-assign-pulse 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 10;
+  position: relative;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+/* ─── Chart overrides (Light Theme) ───────────────────────────── */
+.recharts-surface { overflow: visible; }
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #E5E7EB !important;
+}
+.recharts-text { fill: #6B7280 !important; font-family: 'Inter', sans-serif !important; font-size: 12px !important; }
