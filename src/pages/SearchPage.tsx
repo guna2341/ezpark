@@ -22,7 +22,7 @@ export default function SearchPage({ onNavigate }: SearchPageProps) {
       v.address.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesFilter =
       activeFilter === 'All Lots' ||
-      v.amenities.some(a => a.toLowerCase().includes(activeFilter.toLowerCase())) ||
+      v.amenities.some((a: string) => a.toLowerCase().includes(activeFilter.toLowerCase())) ||
       (activeFilter === 'Covered' && v.amenities.includes('Covered'));
     return matchesQuery && matchesFilter;
   });
@@ -263,7 +263,7 @@ export default function SearchPage({ onNavigate }: SearchPageProps) {
                           </span>
 
                           {/* Amenity tag preview */}
-                          {venue.amenities.slice(0, 2).map(a => (
+                          {venue.amenities.slice(0, 2).map((a: string) => (
                             <span
                               key={a}
                               className="hidden sm:inline-block text-[11px] font-medium px-2 py-0.5 rounded bg-[#F1F3F6] border border-[#E5E7EB] text-[#6B7280]"

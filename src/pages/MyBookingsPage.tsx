@@ -47,7 +47,7 @@ export default function MyBookingsPage({ onNavigate: _onNavigate }: MyBookingsPa
             {tab === 'bookings' ? (
               <div className="space-y-4">
                 {MOCK_BOOKINGS.map((booking, i) => {
-                  const cfg = statusConfig[booking.status];
+                  const cfg = statusConfig[booking.status as keyof typeof statusConfig];
                   const StatusIcon = cfg.icon;
                   return (
                     <motion.div

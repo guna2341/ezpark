@@ -249,10 +249,9 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                   >
                     <motion.div
                       className="w-20 h-2 rounded-full"
-                      style={{ background: 'linear-gradient(135deg, #2F80FF, #00D9C0)' }}
+                      style={{ originX: 'right', background: 'linear-gradient(135deg, #2F80FF, #00D9C0)' }}
                       animate={{ scaleX: [1, 0] }}
                       transition={{ duration: 0.8, delay: 0.2, ease: 'easeInOut' }}
-                      style={{ originX: 'right', background: 'linear-gradient(135deg, #2F80FF, #00D9C0)' }}
                     />
                     <div className="flex items-center gap-2">
                       <span className="pulse-dot bg-[#22C55E]" />

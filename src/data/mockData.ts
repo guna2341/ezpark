@@ -1,4 +1,4 @@
-import type { ParkingSlot, Venue, Booking, Vehicle, Testimonial, BlogPost } from './types';
+import type { ParkingSlot, Venue, Booking, Vehicle, Testimonial, BlogPost } from '../types';
 
 // ─── Parking Slots ──────────────────────────────────────────────
 export const generateSlots = (floor: string, rows: number, cols: number): ParkingSlot[] => {
