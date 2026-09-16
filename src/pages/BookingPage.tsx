@@ -89,7 +89,7 @@ export default function BookingPage({ venue, slot: initialSlot, onNavigate }: Bo
                 fontWeight: 600,
                 fontSize: '15px',
                 color: '#FFFFFF',
-                background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                background: '#3B5BFF',
                 padding: '12px 24px',
                 borderRadius: '8px',
                 border: 'none',
@@ -125,7 +125,7 @@ export default function BookingPage({ venue, slot: initialSlot, onNavigate }: Bo
                 className="flex-1 h-2 rounded-full transition-all duration-500"
                 style={{
                   background: i <= stepIdx
-                    ? 'linear-gradient(135deg, #3B5BFF, #00C2A8)'
+                    ? '#3B5BFF'
                     : '#E5E7EB',
                 }}
               />
@@ -197,7 +197,7 @@ export default function BookingPage({ venue, slot: initialSlot, onNavigate }: Bo
                                   ? 'text-white'
                                   : 'bg-[#F7F8FA] border border-[#E5E7EB] text-[#6B7280] hover:text-[#111827] hover:border-[#D1D5DB]'
                               }`}
-                              style={startTime === t ? { background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)', boxShadow: '0 2px 6px rgba(59,91,255,0.25)' } : {}}
+                              style={startTime === t ? { background: '#3B5BFF', boxShadow: '0 2px 6px rgba(59,91,255,0.25)' } : {}}
                             >
                               {t}
                             </button>
@@ -347,7 +347,7 @@ export default function BookingPage({ venue, slot: initialSlot, onNavigate }: Bo
                   fontWeight: 600,
                   fontSize: '15px',
                   color: '#FFFFFF',
-                  background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                  background: '#3B5BFF',
                   padding: '12px 24px',
                   borderRadius: '8px',
                   border: 'none',

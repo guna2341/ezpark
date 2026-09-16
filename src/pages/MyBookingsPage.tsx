@@ -34,7 +34,7 @@ export default function MyBookingsPage({ onNavigate: _onNavigate }: MyBookingsPa
               className={`text-sm font-semibold px-5 py-2.5 rounded-lg capitalize transition-all cursor-pointer ${
                 tab === t ? 'text-white' : 'text-[#6B7280] hover:text-[#111827]'
               }`}
-              style={tab === t ? { background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)', boxShadow: '0 2px 6px rgba(59, 91, 255, 0.25)' } : {}}
+              style={tab === t ? { background: '#3B5BFF', boxShadow: '0 1px 2px rgba(16, 24, 40, 0.05)' } : {}}
             >
               {t === 'bookings' ? 'My Bookings & Receipts' : 'Registered Vehicles & FASTag'}
             </button>
@@ -60,7 +60,7 @@ export default function MyBookingsPage({ onNavigate: _onNavigate }: MyBookingsPa
                       {booking.status === 'active' && (
                         <div
                           className="h-1.5 w-full"
-                          style={{ background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)' }}
+                          style={{ background: '#3B5BFF' }}
                         />
                       )}
                       {/* 24px standard card padding */}

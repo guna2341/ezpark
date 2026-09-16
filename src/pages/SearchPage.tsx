@@ -100,7 +100,7 @@ export default function SearchPage({ onNavigate }: SearchPageProps) {
                     onClick={() => setActiveFilter(tag)}
                     className="text-xs font-semibold px-3 py-1.5 rounded-lg transition-all"
                     style={{
-                      background: active ? 'linear-gradient(135deg, #3B5BFF, #00C2A8)' : '#FFFFFF',
+                      background: active ? '#3B5BFF' : '#FFFFFF',
                       color: active ? '#FFFFFF' : '#6B7280',
                       border: active ? '1px solid transparent' : '1px solid #E5E7EB',
                       boxShadow: active ? '0 1px 3px rgba(59, 91, 255, 0.25)' : 'none',
@@ -152,7 +152,7 @@ export default function SearchPage({ onNavigate }: SearchPageProps) {
                     fontWeight: 600,
                     fontSize: '14px',
                     color: '#FFFFFF',
-                    background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                    background: '#3B5BFF',
                     padding: '12px 24px', // 12px/24px button spec
                     borderRadius: '8px',
                     border: 'none',

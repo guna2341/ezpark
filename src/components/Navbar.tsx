@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Car, Building2 } from 'lucide-react';
+import { useDemoAuth } from '../context/DemoAuthContext';
 
 const NAV_LINKS = [
   { label: 'For businesses', href: '#businesses' },
@@ -9,13 +10,21 @@ const NAV_LINKS = [
 ];
 
 interface NavbarProps {
-  onNavigate: (page: string) => void;
+  onNavigate?: (page: string) => void;
   activePage: string;
 }
 
 export default function Navbar({ onNavigate, activePage: _activePage }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { role, switchRole } = useDemoAuth();
+
+  const handleToggleRole = () => {
+    if (!onNavigate) return;
+    const nextRole = role === 'owner' ? 'user' : 'owner';
+    switchRole(nextRole);
+    onNavigate(nextRole === 'owner' ? 'owner-dashboard' : 'user-dashboard');
+  };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -39,7 +48,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
       }}
     >
       <div
-        className="mx-auto w-full max-w-[1280px] px-6 md:px-16 h-[72px] flex items-center justify-between gap-8 nav-inner"
+        className="mx-auto w-full max-w-[1600px] px-4 md:px-8 h-[72px] flex items-center justify-between gap-8 nav-inner"
       >
         {/* Logo */}
         <button
@@ -61,7 +70,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
               width: '32px',
               height: '32px',
               borderRadius: '8px',
-              background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+              background: '#3B5BFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -93,23 +102,37 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '32px',
+            gap: '40px',
             flex: 1,
+            marginLeft: '24px',
           }}
           className="nav-links"
         >
           {NAV_LINKS.map(link => (
             <a
               key={link.label}
-              href={link.href}
+              href={`/${link.href}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/') {
+                  onNavigate?.('home');
+                  setTimeout(() => {
+                    document.getElementById(link.href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                } else {
+                  document.getElementById(link.href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 500,
                 fontSize: '14px',
                 color: '#6B7280',
                 textDecoration: 'none',
+                letterSpacing: '0.015em',
                 transition: 'color 0.15s ease',
                 whiteSpace: 'nowrap',
+                cursor: 'pointer',
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#111827'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#6B7280'; }}
@@ -121,9 +144,53 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
 
         {/* Desktop CTAs */}
         <div
-          style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
           className="nav-ctas"
         >
+
+
+          {/* Quick Role Switcher */}
+          <button
+            id="nav-role-switcher-btn"
+            onClick={handleToggleRole}
+            style={{
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 600,
+              fontSize: '12px',
+              color: '#111827',
+              background: '#F7F8FA',
+              border: '1px solid #E5E7EB',
+              borderRadius: '8px',
+              padding: '8px 12px',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.15s ease',
+            }}
+          >
+            {role === 'owner' ? (
+              <>
+                <Car size={14} className="text-[#00C2A8]" />
+                <span>Switch to User view</span>
+              </>
+            ) : (
+              <>
+                <Building2 size={14} className="text-[#3B5BFF]" />
+                <span>Switch to Owner view</span>
+              </>
+            )}
+          </button>
+
+          {/* Demo Login Link */}
+          <button
+            id="nav-demo-login-btn"
+            onClick={() => onNavigate?.('login')}
+            className="text-xs font-semibold text-[#6B7280] hover:text-[#111827] px-2 py-1.5 transition-colors cursor-pointer"
+          >
+            Demo Login
+          </button>
           {/* Primary CTA — 12px/24px button spec */}
           <button
             id="nav-cta-find-parking"
@@ -133,7 +200,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
               fontWeight: 600,
               fontSize: '14px',
               color: '#FFFFFF',
-              background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+              background: '#3B5BFF',
               border: 'none',
               borderRadius: '8px',
               padding: '12px 24px',
@@ -214,8 +281,19 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
           {NAV_LINKS.map(link => (
             <a
               key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
+              href={`/${link.href}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/') {
+                  onNavigate?.('home');
+                  setTimeout(() => {
+                    document.getElementById(link.href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                } else {
+                  document.getElementById(link.href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
+                }
+                setMobileOpen(false);
+              }}
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 500,
@@ -223,6 +301,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
                 color: '#111827',
                 textDecoration: 'none',
                 padding: '8px 0',
+                cursor: 'pointer',
               }}
             >
               {link.label}
@@ -240,7 +319,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
             <button
               onClick={() => { onNavigate('search'); setMobileOpen(false); }}
               style={{
-                background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                background: '#3B5BFF',
                 border: 'none',
                 borderRadius: '8px',
                 padding: '12px 24px',

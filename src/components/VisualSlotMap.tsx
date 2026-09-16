@@ -170,7 +170,7 @@ export default function VisualSlotMap({
                   borderRadius: '6px',
                   border: 'none',
                   cursor: 'pointer',
-                  background: floor === f ? 'linear-gradient(135deg, #3B5BFF, #00C2A8)' : 'transparent',
+                  background: floor === f ? '#3B5BFF' : 'transparent',
                   color: floor === f ? '#FFFFFF' : '#6B7280',
                   boxShadow: floor === f ? '0 1px 3px rgba(59, 91, 255, 0.25)' : 'none',
                   transition: 'all 0.15s ease',
@@ -311,7 +311,7 @@ export default function VisualSlotMap({
                     let cursor = 'pointer';
 
                     if (isSelected) {
-                      bg = 'linear-gradient(135deg, rgba(59, 91, 255, 0.18), rgba(0, 194, 168, 0.18))';
+                      bg = 'rgba(59, 91, 255, 0.1)';
                       border = '2px solid #3B5BFF';
                       textColor = '#3B5BFF';
                     } else if (isOccupied) {
@@ -569,7 +569,7 @@ export default function VisualSlotMap({
               border: 'none',
               cursor: selectedSlot ? 'pointer' : 'not-allowed',
               background: selectedSlot
-                ? 'linear-gradient(135deg, #3B5BFF, #00C2A8)'
+                ? '#3B5BFF'
                 : '#F3F4F6',
               color: selectedSlot ? '#FFFFFF' : '#9CA3AF',
               boxShadow: selectedSlot ? '0 2px 8px rgba(59, 91, 255, 0.3)' : 'none',

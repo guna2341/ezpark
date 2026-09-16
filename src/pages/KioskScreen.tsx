@@ -79,7 +79,7 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
               className={`text-sm font-semibold px-6 py-2.5 rounded-full capitalize transition-all cursor-pointer ${
                 kioskMode === m ? 'text-white' : 'text-white/60 hover:text-white'
               }`}
-              style={kioskMode === m ? { background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)', boxShadow: '0 2px 8px rgba(59,91,255,0.3)' } : {}}
+              style={kioskMode === m ? { background: '#3B5BFF', boxShadow: '0 1px 2px rgba(16, 24, 40, 0.05)' } : {}}
             >
               {m} Gate Kiosk
             </button>
@@ -109,7 +109,7 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                   {/* Scan line */}
                   <motion.div
                     className="absolute left-0 right-0 h-0.5"
-                    style={{ background: 'linear-gradient(135deg, transparent, #2F80FF, #00D9C0, transparent)' }}
+                    style={{ background: '#3B5BFF' }}
                     animate={{ y: [0, 136, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                   />
@@ -134,7 +134,7 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                 {/* Glow below camera */}
                 <div
                   className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-4 blur-xl opacity-60"
-                  style={{ background: 'radial-gradient(ellipse, #2F80FF, transparent)' }}
+                  style={{ background: '#3B5BFF' }}
                 />
               </div>
 
@@ -143,7 +143,7 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                 <motion.div
                   className="h-full rounded-full"
                   style={{
-                    background: 'linear-gradient(135deg, #2F80FF, #00D9C0)',
+                    background: '#3B5BFF',
                     width: `${scanProgress}%`,
                     transition: 'width 0.1s linear',
                   }}
@@ -199,8 +199,8 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                 className="w-full rounded-2xl p-6 mb-6"
                 style={{
                   background: state === 'reserved'
-                    ? 'linear-gradient(135deg, rgba(34,197,94,0.12), rgba(0,217,192,0.08))'
-                    : 'linear-gradient(135deg, rgba(47,128,255,0.12), rgba(0,217,192,0.08))',
+                    ? 'rgba(34,197,94,0.15)'
+                    : 'rgba(59,91,255,0.15)',
                   border: '1px solid rgba(34,197,94,0.25)',
                 }}
               >
@@ -249,7 +249,7 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                   >
                     <motion.div
                       className="w-20 h-2 rounded-full"
-                      style={{ originX: 'right', background: 'linear-gradient(135deg, #2F80FF, #00D9C0)' }}
+                      style={{ originX: 'right', background: '#3B5BFF' }}
                       animate={{ scaleX: [1, 0] }}
                       transition={{ duration: 0.8, delay: 0.2, ease: 'easeInOut' }}
                     />
@@ -261,7 +261,7 @@ export default function KioskScreen({ mode = 'entry' }: KioskScreenProps) {
                       className="w-20 h-2 rounded-full"
                       animate={{ scaleX: [1, 0] }}
                       transition={{ duration: 0.8, delay: 0.2, ease: 'easeInOut' }}
-                      style={{ originX: 'left', background: 'linear-gradient(135deg, #00D9C0, #2F80FF)' }}
+                      style={{ originX: 'left', background: '#3B5BFF' }}
                     />
                   </motion.div>
                 )}

@@ -80,7 +80,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                   fontWeight: 600,
                   fontSize: '16px',
                   color: '#FFFFFF',
-                  background: 'linear-gradient(135deg, #3B5BFF 0%, #00C2A8 100%)',
+                  background: '#3B5BFF',
                   border: 'none',
                   borderRadius: '8px',
                   padding: '16px 32px', // Hero CTA spec: 16px 32px

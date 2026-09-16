@@ -52,7 +52,7 @@ export default function Footer() {
                   width: '32px',
                   height: '32px',
                   borderRadius: '8px',
-                  background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                  background: '#3B5BFF',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -239,7 +239,7 @@ export default function Footer() {
               />
               <button
                 style={{
-                  background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                  background: '#3B5BFF',
                   border: 'none',
                   borderRadius: '8px',
                   padding: '10px',

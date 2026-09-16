@@ -108,7 +108,7 @@ export default function ListYourLotPage({ onNavigate }: ListYourLotProps) {
                     fontWeight: 600,
                     fontSize: '16px',
                     color: '#FFFFFF',
-                    background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                    background: '#3B5BFF',
                     padding: '16px 32px',
                     borderRadius: '10px',
                     border: 'none',
@@ -322,7 +322,7 @@ export default function ListYourLotPage({ onNavigate }: ListYourLotProps) {
       <section
         className="w-full relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+          background: '#3B5BFF',
           paddingTop: '96px',
           paddingBottom: '96px',
         }}
@@ -470,7 +470,7 @@ export default function ListYourLotPage({ onNavigate }: ListYourLotProps) {
                         fontWeight: 600,
                         fontSize: '14px',
                         color: '#FFFFFF',
-                        background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                        background: '#3B5BFF',
                         padding: '13px 28px',
                         borderRadius: '10px',
                         border: 'none',
@@ -841,7 +841,7 @@ export default function ListYourLotPage({ onNavigate }: ListYourLotProps) {
                           fontWeight: 600,
                           fontSize: '14px',
                           color: '#FFFFFF',
-                          background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                          background: '#3B5BFF',
                           border: 'none',
                           borderRadius: '10px',
                           padding: '13px 28px',
@@ -864,7 +864,7 @@ export default function ListYourLotPage({ onNavigate }: ListYourLotProps) {
                           fontWeight: 600,
                           fontSize: '14px',
                           color: '#FFFFFF',
-                          background: 'linear-gradient(135deg, #3B5BFF, #00C2A8)',
+                          background: '#3B5BFF',
                           border: 'none',
                           borderRadius: '10px',
                           padding: '13px 28px',

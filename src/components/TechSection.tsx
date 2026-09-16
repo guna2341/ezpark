@@ -29,7 +29,7 @@ export default function TechSection() {
           width: '500px',
           height: '500px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(59, 91, 255, 0.06) 0%, rgba(0, 194, 168, 0.03) 60%, transparent 80%)',
+          background: '#EEF1FF',
           pointerEvents: 'none',
         }}
       />
