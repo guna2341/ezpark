@@ -339,8 +339,6 @@ export default function UserDashboard() {
               </div>
 
               {/* Perforation Notch Cutouts (desktop visual craft) */}
-              <div className="hidden lg:block absolute left-[66.666%] -top-3 w-6 h-6 rounded-full bg-[#F7F8FA] border border-[#E5E7EB] z-10" />
-              <div className="hidden lg:block absolute left-[66.666%] -bottom-3 w-6 h-6 rounded-full bg-[#F7F8FA] border border-[#E5E7EB] z-10" />
               
               {/* Right Tear-Off Stub (4 cols) with dashed border */}
               <div className="lg:col-span-4 p-6 sm:p-8 bg-[#FAFAFC] border-t lg:border-t-0 lg:border-l border-dashed border-[#D1D5DB] flex flex-col justify-between">
