@@ -53,7 +53,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
         {/* Logo */}
         <button
           id="nav-logo"
-          onClick={() => onNavigate('home')}
+          onClick={() => onNavigate?.('home')}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -194,7 +194,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
           {/* Primary CTA — 12px/24px button spec */}
           <button
             id="nav-cta-find-parking"
-            onClick={() => onNavigate('search')}
+            onClick={() => onNavigate?.('search')}
             style={{
               fontFamily: 'Space Grotesk, sans-serif',
               fontWeight: 600,
@@ -216,7 +216,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
           {/* Secondary CTA — 12px/24px button spec */}
           <button
             id="nav-cta-list-parking"
-            onClick={() => onNavigate('list-lot')}
+            onClick={() => onNavigate?.('list-lot')}
             style={{
               fontFamily: 'Space Grotesk, sans-serif',
               fontWeight: 600,
@@ -317,7 +317,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
             }}
           >
             <button
-              onClick={() => { onNavigate('search'); setMobileOpen(false); }}
+              onClick={() => { onNavigate?.('search'); setMobileOpen(false); }}
               style={{
                 background: '#3B5BFF',
                 border: 'none',
@@ -333,7 +333,7 @@ export default function Navbar({ onNavigate, activePage: _activePage }: NavbarPr
               Find a lot
             </button>
             <button
-              onClick={() => { onNavigate('list-lot'); setMobileOpen(false); }}
+              onClick={() => { onNavigate?.('list-lot'); setMobileOpen(false); }}
               style={{
                 background: '#FFFFFF',
                 border: '1px solid #E5E7EB',

@@ -10,7 +10,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Sparkles,
-  Layers,
 } from 'lucide-react';
 import { useDemoAuth, type UserRole } from '../context/DemoAuthContext';
 

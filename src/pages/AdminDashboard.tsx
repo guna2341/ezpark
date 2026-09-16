@@ -73,14 +73,6 @@ interface SlotBlock {
   status?: 'free' | 'occupied';
 }
 
-const LIVE_FEED = [
-  { time: '10:14 AM', plate: 'KA 05 AB 4321', type: 'entry', slot: 'B1-A04' },
-  { time: '10:11 AM', plate: 'MH 12 DE 5567', type: 'exit', slot: 'G-C07', amount: '₹80' },
-  { time: '10:09 AM', plate: 'TN 07 BX 9988', type: 'entry', slot: 'B1-B02' },
-  { time: '10:06 AM', plate: 'KA 51 S 8890', type: 'exit', slot: 'G-A12', amount: '₹30' },
-  { time: '10:02 AM', plate: 'DL 01 EA 4567', type: 'entry', slot: 'B2-D06' },
-];
-
 const INITIAL_LAYOUT: SlotBlock[] = [
   { id: 'w1', label: '', x: 0, y: 0, w: 12, h: 1, type: 'wall' },
   { id: 'r1', label: 'AISLE A', x: 1, y: 1, w: 10, h: 1, type: 'road' },
@@ -309,13 +301,6 @@ export default function AdminDashboard() {
     { id: 'slots', label: 'Slots & Pricing', icon: Settings },
     { id: 'reports', label: 'Reports', icon: FileText },
   ] as const;
-
-  const OCCUPANCY_DATA = [
-    { name: 'Car', value: 68, color: '#3B5BFF' },
-    { name: 'Bike', value: 14, color: '#F59E0B' },
-    { name: 'EV', value: 12, color: '#22C55E' },
-    { name: 'Empty', value: 6, color: '#E5E7EB' },
-  ];
 
   return (
     <div className="min-h-screen" style={{ background: '#F7F8FA', paddingTop: '104px', paddingBottom: '96px' }}>
